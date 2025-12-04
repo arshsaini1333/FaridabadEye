@@ -1,0 +1,107 @@
+/* Zoom-out background animation */
+.banner-zoom img {
+    animation: zoomOut 14s ease-in-out infinite;
+  }
+  
+  @keyframes zoomOut {
+    0% { transform: scale(1.4); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1.4); }
+  }
+  
+  /* Left panel soft shadow */
+  .panel-shadow {
+    box-shadow: 20px 0 40px rgba(0, 0, 0, 0.6);
+  }
+  
+  /* Green shine animation */
+  .shine-bg {
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .shine-bg::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -120%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(120deg, transparent, rgba(255, 255, 255, 0.35), transparent);
+    transform: skewX(-20deg);
+    animation: shine 2.5s infinite;
+  }
+  
+  /* Shine on white price box */
+  .shine-light {
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .shine-light::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -120%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(120deg, transparent, #8B6A4F, transparent);
+    animation: shine 3s infinite;
+  }
+  
+  /* Shine animation */
+  @keyframes shine {
+    0% { left: -120%; }
+    60% { left: 120%; }
+    100% { left: 120%; }
+  }
+  
+  /* Heading shine */
+  .shine-text {
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .shine-text::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -130%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(120deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    animation: shine 3s infinite;
+  }
+  
+
+  .gradient-left {
+    background: linear-gradient(to right, rgba(0,0,0,0.7), rgba(0,0,0,0));
+  }
+  
+  /* Button shine animation */
+
+  .shine-btn {
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .shine-btn::after {
+    content: "";
+    position: absolute;
+    left: -100%;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      120deg,
+      transparent,
+      rgba(255, 255, 255, 0.45),
+      transparent
+    );
+    transition: 0.6s;
+  }
+  
+  .shine-btn:hover::after {
+    left: 100%;
+  }
+  
