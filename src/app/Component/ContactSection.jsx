@@ -2,13 +2,70 @@
 import Image from "next/image";
 import AOS from "aos";
 import "aos/dist/aos.css";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 export default function ContactShowcase() {
   useEffect(() => {
     AOS.init({ duration: 800, once: false });
     AOS.refresh();
   }, []);
+
+  const [formData, setFormData] = useState({
+    name: "",
+    phone: "",
+    email: "",
+    message: ""
+  });
+
+  const [loading, setLoading] = useState(false);
+
+  const handleChange = (e) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value
+    });
+  };
+
+  
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setLoading(true);
+
+    const postData = new FormData();
+    postData.append('name', formData.name);
+    postData.append('email', formData.email);
+    postData.append('phone', formData.phone);
+    postData.append('msg', formData.message);
+
+    try {
+      await fetch(
+        "https://script.google.com/macros/s/AKfycbxWiMUcPaFPm7V_aQVwtg2D4Ft2A5BybcWAPSuLzrLlHa34BxAAWsXo_QRRkWZxa2D7/exec",
+        {
+          method: "POST",
+          mode: "no-cors",
+          body: postData
+        }
+      );
+
+     // 1. Clear form fields
+  setFormData({
+    name: "",
+    phone: "",
+    email: "",
+    message: "",
+    consent: false,     // include this if your form has checkbox
+  });
+
+  // 2. Redirect to Thank You Page
+  window.location.href = "/thankyou";
+    } catch (error) {
+      console.log(error);
+      alert("Something went wrong. Try again.");
+    }
+
+    setLoading(false);
+  };
 
   return (
     <div className="w-full mt-25" id="contact">
@@ -29,11 +86,8 @@ export default function ContactShowcase() {
 
           {/* LEFT IMAGE SECTION */}
           <div className="relative flex justify-center md:justify-start">
-
-            {/* Decorative dots (hidden on mobile for alignment) */}
             <div className="hidden sm:block absolute -top-6 -left-6 w-32 h-32 bg-[url('/dots.png')] bg-cover opacity-40"></div>
 
-            {/* BIG IMAGE */}
             <div className="
               relative 
               rounded-tl-[100px] rounded-tr-[100px] sm:rounded-tl-[180px] sm:rounded-tr-[180px] 
@@ -49,7 +103,6 @@ export default function ContactShowcase() {
               />
             </div>
 
-            {/* FLOATING SMALL IMAGE */}
             <div className="
               absolute 
               -bottom-8 sm:-bottom-10 
@@ -67,20 +120,23 @@ export default function ContactShowcase() {
                 className="object-cover w-full h-full"
               />
             </div>
-
           </div>
 
           {/* RIGHT SIDE FORM */}
           <div className="bg-white rounded-2xl shadow-xl p-6 sm:p-5 mt-10 md:mt-0 mx-4 sm:mx-0">
-            <form className="space-y-4">
+            <form className="space-y-4" onSubmit={handleSubmit}>
 
               {/* Name */}
               <div>
                 <label className="text-sm font-medium text-gray-700">Name</label>
                 <input
                   type="text"
+                  name="name"
+                  value={formData.name}
+                  onChange={handleChange}
                   className="w-full mt-1 p-3 border border-gray-300 rounded-lg focus:border-[#8B6A4F] outline-none"
                   placeholder="Enter your name"
+                  required
                 />
               </div>
 
@@ -90,8 +146,12 @@ export default function ContactShowcase() {
                   <label className="text-sm font-medium text-gray-700">Phone</label>
                   <input
                     type="text"
+                    name="phone"
+                    value={formData.phone}
+                    onChange={handleChange}
                     className="w-full mt-1 p-3 border border-gray-300 rounded-lg focus:border-[#8B6A4F] outline-none"
                     placeholder="Phone"
+                    required
                   />
                 </div>
 
@@ -99,8 +159,12 @@ export default function ContactShowcase() {
                   <label className="text-sm font-medium text-gray-700">Email</label>
                   <input
                     type="email"
+                    name="email"
+                    value={formData.email}
+                    onChange={handleChange}
                     className="w-full mt-1 p-3 border border-gray-300 rounded-lg focus:border-[#8B6A4F] outline-none"
                     placeholder="Email"
+                    required
                   />
                 </div>
               </div>
@@ -110,16 +174,21 @@ export default function ContactShowcase() {
                 <label className="text-sm font-medium text-gray-700">Message</label>
                 <textarea
                   rows="1"
-                  className="w-full mt-1 p-3 border border-gray-300 rounded-lg focus:border-[#8B6A4F] outline-none"
+                  name="message"
+                  value={formData.message}
+                  onChange={handleChange}
+                  className="w-full mt-1 p-3 border border-gray-300 rounded-la focus:border-[#8B6A4F] outline-none"
                   placeholder="Message"
                 ></textarea>
               </div>
 
               {/* CTA BUTTON */}
               <button
-                className="w-full bg-[#8B6A4F] text-white py-3 rounded-lg font-semibold text-lg shadow-md hover:bg-[#9C7B5C] transition"
+                type="submit"
+                disabled={loading}
+                className="w-full bg-[#8B6A4F] text-white py-3 rounded-lg font-semibold text-lg shadow-md hover:bg-[#9C7B5C] transition disabled:opacity-60"
               >
-                Send Request
+                {loading ? "Sending..." : "Send Request"}
               </button>
 
             </form>

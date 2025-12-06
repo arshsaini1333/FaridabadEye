@@ -30,48 +30,46 @@ export default function AmenitiesCarousel() {
         <Swiper
           modules={[Navigation, Autoplay]}
           onSwiper={(swiper) => (swiperRef.current = swiper)}
-
-          /* FIXED HERE → Use realIndex for loop support */
           onSlideChange={(swiper) => setActiveTitle(swiper.realIndex)}
-
           autoplay={{ delay: 3000 }}
           loop
-          className="overflow-hidden z-5"
+          className="overflow-hidden"
         >
           {amenities.map((item, index) => (
             <SwiperSlide key={index}>
-              <div className="relative w-full h-[550px] md:h-[550px]">
+              <div className="relative w-full h-[260px] sm:h-[350px] md:h-[450px] lg:h-[550px]">
                 <Image
                   src={item.image}
                   alt={item.title}
                   fill
-                  className="object-cover max-h-[550px]"
+                  priority
+                  sizes="(max-width: 640px) 100vw,
+                         (max-width: 1024px) 80vw,
+                         1000px"
+                  className="object-cover"
                 />
               </div>
             </SwiperSlide>
           ))}
         </Swiper>
 
-        {/* White Bottom Bar */}
-        <div className="w-full flex justify-between items-center bg-white shadow-md py-4 px-6 max-w-[500px] mx-auto -mt-1 rounded-md z-10 relative -top-5">
+        {/* Bottom Bar */}
+        <div className="w-full flex justify-between items-center bg-white shadow-md py-4 px-4 md:px-6 max-w-[500px] mx-auto -mt-1 rounded-md z-10 relative -top-5">
 
-          {/* Left Arrow */}
           <button
             onClick={() => swiperRef.current.slidePrev()}
-            className="text-2xl px-3 cursor-pointer"
+            className="text-xl md:text-2xl px-3 cursor-pointer"
           >
             ←
           </button>
 
-          {/* Title */}
-          <span className="text-lg font-medium tracking-wide">
+          <span className="text-base md:text-lg font-medium tracking-wide text-center">
             {amenities[activeTitle]?.title}
           </span>
 
-          {/* Right Arrow */}
           <button
             onClick={() => swiperRef.current.slideNext()}
-            className="text-2xl px-3 cursor-pointer"
+            className="text-xl md:text-2xl px-3 cursor-pointer"
           >
             →
           </button>

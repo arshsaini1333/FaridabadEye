@@ -1,0 +1,83 @@
+.thankyou-container {
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    position: relative;
+  }
+  
+  .thankyou-container::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: url("/banner.jpg"); /* change image if needed */
+    background-size: cover;
+    background-position: center;
+    z-index: -1;
+    animation: thankyou-zoomOut 8s ease forwards;
+    filter: brightness(0.5);
+  }
+  
+  /* Zoom-out animation */
+  @keyframes thankyou-zoomOut {
+    0% {
+      transform: scale(1.2);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+  
+  .thankyou-content-box {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+    color: white;
+  }
+  
+  /* Stronger, bolder heading */
+  .thankyou-main-heading {
+    font-size: 2.6rem;
+    font-weight: 900;
+    letter-spacing: 1px;
+  }
+  
+  .thankyou-sub-heading {
+    margin-top: 10px;
+    font-size: 1.3rem;
+    font-weight: 500;
+    opacity: 0.95;
+  }
+  
+  /* Return Home button */
+  .thankyou-home-btn {
+    margin-top: 25px;
+    padding: 12px 28px;
+    background: white;
+    color: #333;
+    border-radius: 6px;
+    font-size: 1rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: 0.25s ease;
+    background: #8B6A4F;
+    color: white;
+  }
+  
+  .thankyou-home-btn:hover {
+   
+    transform: translateY(-2px);
+  }
+  
+  @media (min-width: 768px) {
+    .thankyou-main-heading {
+      font-size: 3.8rem;
+    }
+    .thankyou-sub-heading {
+      font-size: 1.8rem;
+    }
+  }
+  

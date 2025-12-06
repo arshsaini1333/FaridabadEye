@@ -69,7 +69,7 @@ export default function LegendWithImage() {
             className="
               relative 
               w-full 
-              h-[90vh] md:h-[50vh]
+              h-[90vh] 
               rounded-lg overflow-hidden shadow-md
             "
           >

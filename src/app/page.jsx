@@ -3,7 +3,6 @@
 import Image from "next/image";
 import { useState } from "react";
 import Navbar from "./Component/Navbar";
-import Hero from "./Component/Hero";
 import PropertyInformation from "./Component/PropertyInformation";
 import FlatSlider from "./Component/FlatGallery";
 import ContactSection from "./Component/ContactSection";
