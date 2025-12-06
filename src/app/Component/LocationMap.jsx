@@ -4,9 +4,9 @@ import Image from "next/image";
 
 export default function LegendWithImage() {
   return (
-    <div id="map">
+    <div id="map" className="mt-20">
       <h2
-        className="text-center text-2xl sm:text-3xl md:text-4xl font-semibold tracking-wide mt-10 mb-5"
+        className="text-center text-2xl sm:text-3xl md:text-4xl font-semibold tracking-wide mb-5"
         data-aos="fade-up"
       >
         LOCATION MAP
