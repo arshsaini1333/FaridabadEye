@@ -1,5 +1,7 @@
 "use client";
 import Image from "next/image";
+import FacebookIcon from "@mui/icons-material/Facebook";
+import InstagramIcon from "@mui/icons-material/Instagram";
 
 export default function Footer() {
   return (
@@ -9,7 +11,7 @@ export default function Footer() {
         {/* Logo + Brand */}
         <div>
           <Image
-            src="/logo.png"  // update with your logo
+            src="/logo.png"
             width={160}
             height={80}
             alt="Faridabad Eye Logo"
@@ -29,17 +31,31 @@ export default function Footer() {
             Contact Us
           </h3>
 
-          <p className="text-sm text-gray-300 mb-2">
-            📍 IMT, Faridabad, Haryana, India
-          </p>
+          <p className="text-sm text-gray-300 mb-2">📍 IMT, Faridabad, Haryana, India</p>
+          <p className="text-sm text-gray-300 mb-2">📞 +918920455162</p>
+          <p className="text-sm text-gray-300 mb-4">✉️ info@faridabadeye.com</p>
 
-          <p className="text-sm text-gray-300 mb-2">
-            📞 +918920455162
-          </p>
+          {/* Social Icons */}
+          <div className="flex items-center gap-4">
 
-          <p className="text-sm text-gray-300">
-            ✉️ info@faridabadeye.com
-          </p>
+            {/* Facebook Square */}
+            <a
+              href="https://facebook.com"
+              target="_blank"
+              className="hover:opacity-70 transition rounded-md"
+            >
+              <FacebookIcon style={{ fontSize: 27, color: "white" }} />
+            </a>
+
+            {/* Instagram Square */}
+            <a
+              href="https://www.instagram.com/faridabadeyehomes?igsh=MXNzejZjbnAxZTVkNQ=="
+              target="_blank"
+              className="hover:opacity-70 transition rounded-md"
+            >
+              <InstagramIcon style={{ fontSize: 25, color: "white" }} />
+            </a>
+          </div>
         </div>
 
         {/* Quick Links */}
