@@ -12,15 +12,15 @@ export default function CircleAdvantages({ openForm }) {
   }, []);
 
   const locations = [
-    { label: "200 meters from the Delhi–Mumbai Expressway.", x: "15%", y: "8%" },
-    { label: "1 km from Faridabad Jewar International Airport Express Highway.", x: "58%", y: "8%" },
-    { label: "20 min drive from Jewar international Airport.", x: "12%", y: "30%" },
-    { label: "6Km From The Eastern Peripheral Expressway (KGP).", x: "60%", y: "30%" },
-    { label: "5 min drive from operational metro station.", x: "38%", y: "45%" },
-    { label: "Aprox 10 Km from Faridabad–Gurugram Expressway.", x: "10%", y: "65%" },
-    { label: "5 min drive from railway station and bus stand.", x: "58%", y: "60%" },
-    { label: "15 Minutes drive from upcoming film city and electronic city.", x: "18%", y: "80%" },
-    { label: "45min drive from IGI International Airport.", x: "60%", y: "78%" },
+    { label: "200 meters from the Delhi–Mumbai Expressway.", x: "30%", y: "8%" },
+    { label: "1 km from Faridabad Jewar International Airport Express Highway.", x: "68%", y: "8%" },
+    { label: "20 min drive from Jewar international Airport.", x: "20%", y: "30%" },
+    { label: "6Km From The Eastern Peripheral Expressway (KGP).", x: "80%", y: "30%" },
+    { label: "5 min drive from operational metro station.", x: "55%", y: "45%" },
+    { label: "Aprox 10 Km from Faridabad–Gurugram Expressway.", x: "20%", y: "55%" },
+    { label: "5 min drive from railway station and bus stand.", x: "78%", y: "60%" },
+    { label: "15 Minutes drive from upcoming film city and electronic city.", x: "28%", y: "70%" },
+    { label: "45 min drive from IGI International Airport.", x: "70%", y: "80%" },
     { label: "3 km from National Highway 19.", x: "42%", y: "93%" }
   ];
 

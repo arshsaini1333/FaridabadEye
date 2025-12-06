@@ -40,7 +40,7 @@ export default function Footer() {
 
             {/* Facebook Square */}
             <a
-              href="https://facebook.com"
+              href="https://www.facebook.com/share/16skNLhPE5/?mibextid=wwXIfr"
               target="_blank"
               className="hover:opacity-70 transition rounded-md"
             >

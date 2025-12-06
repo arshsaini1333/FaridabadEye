@@ -40,7 +40,7 @@ export default function ContactShowcase() {
 
     try {
       await fetch(
-        "https://script.google.com/macros/s/AKfycbxWiMUcPaFPm7V_aQVwtg2D4Ft2A5BybcWAPSuLzrLlHa34BxAAWsXo_QRRkWZxa2D7/exec",
+        "https://script.google.com/macros/s/AKfycby7BeiW-_ofDfnVRL817Eu564ze751pjNh-O2b7qxsDFqSoTE5pvJUOHfYwXsYye8hW/exec",
         {
           method: "POST",
           mode: "no-cors",
