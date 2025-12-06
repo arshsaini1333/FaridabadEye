@@ -132,7 +132,7 @@ export default function BannerSection({ openForm }) {
           "
         >
           <div className="bg-[#3C2F25] text-center text-white py-3 text-lg font-semibold">
-            BOOK YOUR VISIT TODAY !
+            BOOK YOUR SITE VISIT TODAY !
           </div>
 
           <div className="p-6">
@@ -207,7 +207,7 @@ export default function BannerSection({ openForm }) {
       <div className="md:hidden w-full px-4 mt-6">
         <div className="bg-white/95 backdrop-blur-sm rounded-md shadow-xl p-5">
           <div className="bg-[#3C2F25] text-center text-white py-2 text-base font-semibold rounded">
-            BOOK YOUR VISIT TODAY !
+            BOOK YOUR SITE VISIT TODAY !
           </div>
 
           <p className="text-center text-gray-700 my-3 text-sm">
