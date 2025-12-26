@@ -1,0 +1,44 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
+
+@import "tailwindcss";
+
+
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+
+html, body {
+  font-family: "Montserrat";
+}
+/* Swiper Navigation Arrows */
+.swiper-button-next,
+.swiper-button-prev {
+  color: #8B6A4F !important; /* brown */
+  font-size: 0.5rem !important;
+}
+
+/* Swiper Pagination Dots */
+.swiper-pagination-bullet {
+  background: #8B6A4F !important; /* brown */
+  opacity: 0.5;
+}
+
+.swiper-pagination-bullet-active {
+  background: #8B6A4F !important; /* brown */
+  opacity: 1;
+}
+
+.custom-scroll::-webkit-scrollbar {
+  display: none;
+}
+
+.custom-scroll {
+  -ms-overflow-style: none; 
+  scrollbar-width: none;
+}
+
