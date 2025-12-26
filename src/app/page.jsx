@@ -6,7 +6,8 @@ import Navbar from "./Component/Navbar";
 import PropertyInformation from "./Component/PropertyInformation";
 import FlatSlider from "./Component/FlatGallery";
 import ContactSection from "./Component/ContactSection";
-import AmenitiesSlider from "./Component/Amenities";
+// import AmenitiesSlider from "./Component/Amenities";
+import AmenitiesCards from "./Component/AmenitiesCard";
 import FloorPlan from "./Component/FloorPlan";
 import LocationMap from "./Component/LocationMap";
 import Footer from "./Component/Footer";
@@ -36,7 +37,8 @@ export default function Home() {
         {/* <Hero openForm={openForm}/> */}
         <BannerSection openForm={openForm}/>
         <PropertyInformation openForm={openForm}/>
-        <AmenitiesSlider/>
+        {/* <AmenitiesSlider/> */}
+        <AmenitiesCards/>
         <FlatSlider openForm={openForm}/>
         <FloorPlan/>
         <LocationAdvantages openForm={openForm}/>
