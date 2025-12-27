@@ -4,11 +4,11 @@
 } */
 
   
-  @keyframes zoomOut {
+  /* @keyframes zoomOut {
     0% { transform: scale(1.4); }
     50% { transform: scale(1.1); }
     100% { transform: scale(1.4); }
-  }
+  } */
   
   /* Left panel soft shadow */
   .panel-shadow {
@@ -21,7 +21,7 @@
     overflow: hidden;
   }
   
-  .shine-bg::after {
+  /* .shine-bg::after {
     content: "";
     position: absolute;
     top: 0;
@@ -31,7 +31,7 @@
     background: linear-gradient(120deg, transparent, rgba(255, 255, 255, 0.35), transparent);
     transform: skewX(-20deg);
     animation: shine 2.5s infinite;
-  }
+  } */
   
   /* Shine on white price box */
   .shine-light {
@@ -63,7 +63,7 @@
     overflow: hidden;
   }
   
-  .shine-text::after {
+  /* .shine-text::after {
     content: "";
     position: absolute;
     top: 0;
@@ -73,7 +73,7 @@
     background: linear-gradient(120deg, transparent, rgba(255, 255, 255, 0.3), transparent);
     animation: shine 3s infinite;
   }
-  
+   */
 
   .gradient-left {
     background: linear-gradient(to right, rgba(0,0,0,0.7), rgba(0,0,0,0));
@@ -86,7 +86,7 @@
     overflow: hidden;
   }
   
-  .shine-btn::after {
+  /* .shine-btn::after {
     content: "";
     position: absolute;
     left: -100%;
@@ -100,7 +100,7 @@
       transparent
     );
     transition: 0.6s;
-  }
+  } */
   
   .shine-btn:hover::after {
     left: 100%;
