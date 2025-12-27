@@ -1,5 +1,4 @@
 "use client";
-import Image from "next/image";
 import "./banner.css";
 import { useState } from "react";
 
@@ -14,7 +13,6 @@ export default function BannerSection({ openForm }) {
 
   const [loading, setLoading] = useState(false);
 
-  // FIX: checkbox + text handled correctly (no visual change)
   const handleChange = (e) => {
     const { name, value, type, checked } = e.target;
     setFormData((prev) => ({
@@ -44,7 +42,6 @@ export default function BannerSection({ openForm }) {
 
       if (!res.ok) throw new Error("Lead failed");
 
-      // brochure download
       const link = document.createElement("a");
       link.href = "/Faridabad_Eye_Brochure.pdf";
       link.download = "Faridabad-Eye-Brochure.pdf";
@@ -75,87 +72,78 @@ export default function BannerSection({ openForm }) {
     <>
       {/* HERO */}
       <section className="relative w-full min-h-[100svh] overflow-hidden">
-        {/* DESKTOP HERO IMAGE (LCP IMAGE) */}
-        <div className="hidden md:block absolute inset-0 banner-zoom">
-  <Image
-    src="/banner.webp"
-    alt="Faridabad Eye Luxury Duplex"
-    fill
-    priority
-    fetchPriority="high"
-    quality={75}
-    sizes="(min-width: 768px) 100vw"
-    className="object-cover"
-  />
-</div>
+        {/* HERO IMAGE */}
+        <div className="absolute inset-0 banner-zoom">
+          <picture>
+            <source srcSet="/banner_m.webp" media="(max-width: 768px)" />
+            <img
+  src="/banner.webp"
+  alt="Faridabad Eye Luxury Duplex"
+  width="1920"
+  height="1080"
+  loading="eager"
+  fetchPriority="high"
+  decoding="async"
+  sizes="(max-width: 768px) 100vw, 1920px"
+  className="w-full h-full object-cover"
+/>
 
-
-        {/* MOBILE HERO IMAGE (NOT LCP) */}
-        <div className="block md:hidden absolute inset-0 banner-zoom">
-  <Image
-    src="/banner_m.webp"
-    alt="Faridabad Eye Luxury Duplex"
-    fill
-    quality={70}
-    sizes="100vw"
-    className="object-cover"
-  />
-</div>
-
+          </picture>
+        </div>
 
         {/* OVERLAY */}
         <div className="absolute inset-0 bg-black/45" />
 
         <div className="absolute left-20 top-30 h-full w-[26%] gradient-left border-t border-l border-[#8B6A4F]/70 hidden xl:block"></div>
 
-        {/* LEFT CONTENT (UNCHANGED) */}
+        {/* LEFT CONTENT */}
         <div
           className="
             absolute 
             left-4 sm:left-10 md:left-16 xl:left-24 
-            top-[53%] sm:top-[50%] md:top-[58%]
+            top-[55%] sm:top-[50%] md:top-[52%] lg:top-[58%]
             -translate-y-1/2 
             text-white 
             max-w-sm sm:max-w-md md:max-w-xl 
             space-y-4 sm:space-y-5 md:space-y-6
           "
         >
-          <h1 className="text-xl sm:text-3xl font-bold shine-text tracking-wide w-full">
+          <h1 className="text-xl sm:text-3xl font-bold shine-text tracking-wide">
             Faridabad&apos;s Tallest Iconic Towers <br /> 3+1 BHK Ultra-Luxury Duplex
           </h1>
 
-          <span className="px-4 py-1 bg-[#8B6A4F] rounded-sm sm:text-md inline-block shine-bg font-bold text-xl">
+          <span className="px-4 py-1 bg-[#8B6A4F] rounded-sm inline-block shine-bg font-bold text-xl">
             Sec 70, IMT Faridabad
           </span>
 
-          <ul className="text-sm sm:text-base space-y-1 opacity-95 leading-relaxed">
+          <ul className="text-sm sm:text-base space-y-1 opacity-95">
             <li>Ready To Move In</li>
             <li>2525 Sq. Ft. Area</li>
             <li>80% Government Bank Loan</li>
             <li>40,000 Sq. Ft. Sky Clubhouse</li>
           </ul>
 
-          <div className="px-4 py-2 bg-[#8B6A4F] text-white rounded-sm text-sm sm:text-lg w-max shine-bg border border-[#8B6A4F] font-semibold">
+          <div className="px-4 py-2 bg-[#8B6A4F] text-white rounded-sm w-max font-semibold">
             UPTO 50 LAC DISCOUNT FOR EARLY BIRDS
           </div>
 
           <div
-            className="px-4 py-2 sm:py-3 bg-white text-black rounded-sm text-sm sm:text-lg w-max shine-light border border-[#8B6A4F] font-semibold cursor-pointer"
+            className="px-4 py-3 bg-white text-black rounded-sm w-max font-semibold cursor-pointer"
             onClick={openForm}
           >
             Price : ₹ 2.70 Cr* Onwards
           </div>
         </div>
 
-        {/* DESKTOP FORM (UNCHANGED VISUALLY) */}
+        {/* DESKTOP FORM – ONLY lg+ */}
         <div
           className="
             hidden 
-            md:block 
+            lg:block 
             absolute 
-            right-4 md:right-8 xl:right-16 
-            top-[25%] md:top-[18%] 
-            w-[300px] sm:w-[340px] md:w-[360px] xl:w-[380px] 
+            right-8 xl:right-16 
+            top-[18%] 
+            w-[360px] xl:w-[380px] 
             bg-white/95 backdrop-blur-sm rounded-md shadow-xl
           "
         >
@@ -164,27 +152,13 @@ export default function BannerSection({ openForm }) {
           </div>
 
           <div className="p-6">
-            <p className="text-center text-gray-700 mb-4 text-sm">
-              Please feel free to connect regarding any kind of query !!
-            </p>
-
             <form className="space-y-4" onSubmit={handleSubmit}>
-              <input className="w-full px-3 py-3 border border-gray-300 rounded" name="name" value={formData.name} onChange={handleChange} placeholder="Your Name*" required />
-              <input className="w-full px-3 py-3 border border-gray-300 rounded" name="phone" value={formData.phone} onChange={handleChange} placeholder="Your Phone No.*" required />
-              <input className="w-full px-3 py-3 border border-gray-300 rounded" type="email" name="email" value={formData.email} onChange={handleChange} placeholder="Your Email Address*" required />
-              <textarea className="w-full px-3 py-3 border border-gray-300 rounded" rows={1} name="message" value={formData.message} onChange={handleChange} placeholder="Your Message*" required />
+              <input className="w-full px-3 py-3 border rounded" name="name" value={formData.name} onChange={handleChange} placeholder="Your Name*" required />
+              <input className="w-full px-3 py-3 border rounded" name="phone" value={formData.phone} onChange={handleChange} placeholder="Your Phone No.*" required />
+              <input className="w-full px-3 py-3 border rounded" type="email" name="email" value={formData.email} onChange={handleChange} placeholder="Your Email Address*" required />
+              <textarea className="w-full px-3 py-3 border rounded" rows={1} name="message" value={formData.message} onChange={handleChange} placeholder="Your Message*" required />
 
-              <div className="flex items-start gap-2 text-xs text-gray-600">
-                <input type="checkbox" name="consent" checked={formData.consent} onChange={handleChange} required className="mt-1 accent-[#8B6A4F]" />
-                <span>I authorize company representatives to Call, SMS, Email or WhatsApp me.</span>
-              </div>
-
-              {/* FIXED HEIGHT → NO CLS */}
-              <button
-                type="submit"
-                disabled={loading}
-                className="shine-btn w-full h-[48px] bg-linear-to-r from-[#8B6A4F] to-[#CFA97A] text-white rounded text-lg font-semibold"
-              >
+              <button type="submit" disabled={loading} className="shine-btn w-full h-[48px] bg-gradient-to-r from-[#8B6A4F] to-[#CFA97A] text-white rounded text-lg font-semibold">
                 {loading ? "Downloading..." : "Download Brochure"}
               </button>
             </form>
@@ -192,24 +166,20 @@ export default function BannerSection({ openForm }) {
         </div>
       </section>
 
-      {/* MOBILE FORM (UNCHANGED VISUALLY) */}
-      <div className="md:hidden w-full px-4 mt-6">
-        <div className="bg-white/95 backdrop-blur-sm rounded-md shadow-xl p-5">
+      {/* MOBILE + TABLET FORM */}
+      <div className="lg:hidden w-full px-4 mt-6 flex justify-center">
+        <div className="w-full max-w-md bg-white/95 backdrop-blur-sm rounded-md shadow-xl p-5">
           <div className="bg-[#3C2F25] text-center text-white py-2 text-base font-semibold rounded">
             BOOK YOUR SITE VISIT TODAY !
           </div>
 
           <form className="space-y-4 mt-4" onSubmit={handleSubmit}>
-            <input className="w-full px-3 py-3 border border-gray-300 rounded" name="name" value={formData.name} onChange={handleChange} placeholder="Your Name*" required />
-            <input className="w-full px-3 py-3 border border-gray-300 rounded" name="phone" value={formData.phone} onChange={handleChange} placeholder="Your Phone No.*" required />
-            <input className="w-full px-3 py-3 border border-gray-300 rounded" type="email" name="email" value={formData.email} onChange={handleChange} placeholder="Your Email Address*" required />
-            <textarea className="w-full px-3 py-3 border border-gray-300 rounded h-24" name="message" value={formData.message} onChange={handleChange} placeholder="Your Message*" required />
+            <input className="w-full px-3 py-3 border rounded" name="name" value={formData.name} onChange={handleChange} placeholder="Your Name*" required />
+            <input className="w-full px-3 py-3 border rounded" name="phone" value={formData.phone} onChange={handleChange} placeholder="Your Phone No.*" required />
+            <input className="w-full px-3 py-3 border rounded" type="email" name="email" value={formData.email} onChange={handleChange} placeholder="Your Email Address*" required />
+            <textarea className="w-full px-3 py-3 border rounded h-24" name="message" value={formData.message} onChange={handleChange} placeholder="Your Message*" required />
 
-            <button
-              type="submit"
-              disabled={loading}
-              className="shine-btn w-full h-[48px] bg-linear-to-r from-[#8B6A4F] to-[#CFA97A] text-white rounded text-lg font-semibold"
-            >
+            <button type="submit" disabled={loading} className="shine-btn w-full h-[48px] bg-gradient-to-r from-[#8B6A4F] to-[#CFA97A] text-white rounded text-lg font-semibold">
               {loading ? "Downloading..." : "Download Brochure"}
             </button>
           </form>

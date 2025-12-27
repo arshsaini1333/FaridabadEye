@@ -1,14 +1,10 @@
 "use client";
 import Image from "next/image";
-import AOS from "aos";
-import "aos/dist/aos.css";
-import { useEffect } from "react";
+// import AOS from "aos";
+// import "aos/dist/aos.css";
 
 export default function PropertyInformation({ openForm }) {
-  useEffect(() => {
-    AOS.init({ duration: 800, once: false });
-    AOS.refresh();
-  }, []);
+ 
 
   return (
     <section className="w-full py-12 sm:py-16" id="about">
@@ -17,7 +13,7 @@ export default function PropertyInformation({ openForm }) {
         {/* Main Row: Left Text + Right Image */}
         <div
           className="grid grid-cols-1 md:grid-cols-2 gap-10 items-center"
-          data-aos="fade-up"
+          
         >
           {/* Left Content */}
           <div className="mt-4 md:mt-0">
@@ -33,7 +29,7 @@ export default function PropertyInformation({ openForm }) {
 
             <div
   className="w-full flex justify-center sm:justify-start mt-8 sm:mt-10"
-  data-aos="fade-up"
+  
 >
   <button
     className="

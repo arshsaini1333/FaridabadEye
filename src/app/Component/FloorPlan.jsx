@@ -1,24 +1,24 @@
 "use client";
 
 import Image from "next/image";
-import AOS from "aos";
-import "aos/dist/aos.css";
+// import AOS from "aos";
+// import "aos/dist/aos.css";
 import { useEffect } from "react";
 export default function FloorPlan() {
-    useEffect(() => {
-        AOS.init({ duration: 800, once: false });
-        AOS.refresh();
-      }, []);
+    // useEffect(() => {
+    //     AOS.init({ duration: 800, once: false });
+    //     AOS.refresh();
+    //   }, []);
   return (
     <section className="w-full py-16 px-6 flex flex-col items-center" id="floorplan">
       
       {/* Heading */}
-      <h2 className="text-center text-3xl md:text-4xl font-semibold tracking-wide mb-10" data-aos="fade-up">
+      <h2 className="text-center text-3xl md:text-4xl font-semibold tracking-wide mb-10" >
         Floor Plans
       </h2>
 
       {/* Images Wrapper (max width control) */}
-      <div className="max-w-6xl w-full grid grid-cols-1 md:grid-cols-2 gap-10" data-aos="fade-up">
+      <div className="max-w-6xl w-full grid grid-cols-1 md:grid-cols-2 gap-10">
 
         {/* Plan 1 */}
         <div className="rounded-xl overflow-hidden shadow-lg justify-center">

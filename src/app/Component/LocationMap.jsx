@@ -1,20 +1,14 @@
 "use client";
 
 import Image from "next/image";
-import AOS from "aos";
-import "aos/dist/aos.css";
-import { useEffect } from "react";
+
 export default function LegendWithImage() {
-  useEffect(() => {
-    AOS.init({ duration: 800, once: false });
-    // refresh AOS if dynamic content is added later:
-    AOS.refresh();
-  }, []);
+  
   return (
     <div id="locationmap" className="mt-20">
       <h2
         className="text-center text-2xl sm:text-3xl md:text-4xl font-semibold tracking-wide mb-2"
-        data-aos="fade-up"
+       
       >
         LOCATION MAP
       </h2>
@@ -28,7 +22,6 @@ export default function LegendWithImage() {
           p-4 sm:p-6 md:p-10 
           items-start
         "
-        data-aos="fade-up"
       >
         {/* LEFT SIDE – LEGEND */}
         <div className="w-full md:w-1/3 space-y-3 sm:space-y-4">

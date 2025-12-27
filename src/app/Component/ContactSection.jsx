@@ -1,14 +1,14 @@
 "use client";
 import Image from "next/image";
-import AOS from "aos";
-import "aos/dist/aos.css";
+// import AOS from "aos";
+// import "aos/dist/aos.css";
 import { useEffect, useState } from "react";
 
 export default function ContactShowcase() {
-  useEffect(() => {
-    AOS.init({ duration: 800, once: false });
-    AOS.refresh();
-  }, []);
+  // useEffect(() => {
+  //   AOS.init({ duration: 800, once: false });
+  //   AOS.refresh();
+  // }, []);
 
   const [formData, setFormData] = useState({
     name: "",
@@ -70,13 +70,13 @@ export default function ContactShowcase() {
     <div className="w-full mt-25" id="contact">
 
       {/* Heading */}
-      <div className="grid w-[90%] sm:w-[80%] mx-auto gap-5 mb-0 px-4" data-aos="fade-up">
+      <div className="grid w-[90%] sm:w-[80%] mx-auto gap-5 mb-0 px-4">
         <h2 className="text-2xl sm:text-3xl md:text-4xl font-semibold text-black leading-tight text-center">
           Connect With Your Future of Elevated Living
         </h2>
       </div>
 
-      <section className="w-full py-8 sm:py-20" data-aos="fade-up">
+      <section className="w-full py-8 sm:py-20" >
         <div className="
           max-w-7xl mx-auto px-4 sm:px-6 
           grid grid-cols-1 md:grid-cols-2 

@@ -1,15 +1,15 @@
 "use client";
 
 import { motion } from "framer-motion";
-import AOS from "aos";
-import "aos/dist/aos.css";
+// import AOS from "aos";
+// import "aos/dist/aos.css";
 import { useEffect } from "react";
 
 export default function CircleAdvantages({ openForm }) {
-  useEffect(() => {
-    AOS.init({ duration: 800, once: false });
-    AOS.refresh();
-  }, []);
+  // useEffect(() => {
+  //   AOS.init({ duration: 800, once: false });
+  //   AOS.refresh();
+  // }, []);
 
   const locations = [
     { label: "200 meters from the Delhi–Mumbai Expressway.", x: "30%", y: "8%" },
@@ -105,7 +105,7 @@ export default function CircleAdvantages({ openForm }) {
           ------------------------ */}
           <div
             className="w-full lg:w-[40%] hidden lg:flex flex-col justify-center text-left px-6"
-            data-aos="fade-up"
+            
           >
             <h2 className="text-3xl font-light text-black tracking-wide leading-tight">
               LOCATION
@@ -124,7 +124,7 @@ export default function CircleAdvantages({ openForm }) {
         </div>
       </section>
 
-      <div className="w-full flex justify-center mt-4" data-aos="fade-up">
+      <div className="w-full flex justify-center mt-4" >
         <button
           className="
               cursor-pointer
